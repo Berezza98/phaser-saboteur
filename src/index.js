@@ -8,6 +8,7 @@ class Game extends Phaser.Game {
     super(config);
     this.scene.add("BootScene", bootScene);
     this.scene.add("LoadingScene", loadingScene);
+    console.log("game started");
     this.scene.start("BootScene");
   }
 }
