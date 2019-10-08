@@ -23,9 +23,9 @@ export default class LoadingScene extends Phaser.Scene {
     this.showLoading();
     this.load.spritesheet("playCards", playCards, { frameWidth: this.cardFrame.width, frameHeight: this.cardFrame.height });
     this.load.audio("dealindCard", dealingCardSound);
-    for (let i = 0; i < 1000; i++) {
-      this.load.audio("dealindCard" + i, dealingCardSound);
-    }
+    // for (let i = 0; i < 1000; i++) {
+    //   this.load.audio("dealindCard" + i, dealingCardSound);
+    // }
   }
 
   create() {
@@ -64,7 +64,7 @@ export default class LoadingScene extends Phaser.Scene {
       this.loading.fillRect(150, this.gameHeight / 2 + 50, (this.gameWidth - 300) * progress, 30);
     }, this);
     this.load.on("complete", () => {
-      this.scene.start("gameScene")
+      this.scene.start("GameScene")
     }, this);
   }
 }
