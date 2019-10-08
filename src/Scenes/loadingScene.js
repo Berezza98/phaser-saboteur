@@ -1,5 +1,8 @@
 import "phaser";
 
+import playCards from "../assets/images/cards.png";
+import dealingCardSound from "../assets/audio/dealing-card.mp3"
+
 export default class LoadingScene extends Phaser.Scene {
   constructor(key) {
     super(key);
@@ -18,10 +21,10 @@ export default class LoadingScene extends Phaser.Scene {
   preload() {
     this.setBackground();
     this.showLoading();
-    this.load.spritesheet("playCards", "../../assets/images/cards.png", { frameWidth: this.cardFrame.width, frameHeight: this.cardFrame.height });
-    this.load.audio("dealindCard", "../../assets/audio/dealing-card.mp3");
+    this.load.spritesheet("playCards", playCards, { frameWidth: this.cardFrame.width, frameHeight: this.cardFrame.height });
+    this.load.audio("dealindCard", dealingCardSound);
     for (let i = 0; i < 1000; i++) {
-      this.load.audio("dealindCard" + i, "../../assets/audio/dealing-card.mp3");
+      this.load.audio("dealindCard" + i, dealingCardSound);
     }
   }
 
@@ -31,7 +34,6 @@ export default class LoadingScene extends Phaser.Scene {
 
   setBackground() {
     this.background = this.add.image(0, 0, "background");
-    console.log(this.gameHeight, this.gameWidth);
     this.background.setDisplaySize(this.gameWidth, this.gameHeight);
     this.background.setOrigin(0);
   }
@@ -56,7 +58,7 @@ export default class LoadingScene extends Phaser.Scene {
     this.loadingBackground.fillRect(150, this.gameHeight / 2 + 50, this.gameWidth - 300, 30);
 
     this.loading = this.add.graphics();
-    this.loading.fillStyle(0x1c6d2a, 1);
+    this.loading.fillStyle(0x1c14ff, 1);
     this.load.on("progress", progress => {
       this.loading.clear();
       this.loading.fillRect(150, this.gameHeight / 2 + 50, (this.gameWidth - 300) * progress, 30);

@@ -14,6 +14,6 @@ export default class BootScene extends Phaser.Scene {
 
   create() {
     console.log("boot scene created");
-    this.scene.start("loadingScene");
+    this.scene.start("LoadingScene");
   }
 }
